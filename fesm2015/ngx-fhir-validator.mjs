@@ -1,6 +1,6 @@
 import * as i0 from '@angular/core';
 import { Injectable, Component, NgModule } from '@angular/core';
-import * as JSZip from 'jszip';
+import jsPDF from 'jspdf';
 
 class NgxFhirValidatorService {
     constructor() { }
@@ -16,8 +16,9 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.2.9", ngImpor
 
 class NgxFhirValidatorComponent {
     ngOnInit() {
-        const zip = new JSZip();
-        zip.file("Hello.txt", "Hello World\n");
+        const doc = new jsPDF();
+        doc.text("Hello world!", 10, 10);
+        doc.save("a4.pdf");
     }
 }
 NgxFhirValidatorComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.2.9", ngImport: i0, type: NgxFhirValidatorComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
